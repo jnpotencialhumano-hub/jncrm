@@ -103,7 +103,38 @@
       -webkit-backdrop-filter: blur(20px);
     }
 
-    /* Alerta de error con estilo exacto */
+    /* Banner Informativo Contacto vs Usuario */
+    .contact-banner {
+      background: rgba(37, 211, 102, 0.08);
+      border: 1px solid rgba(37, 211, 102, 0.25);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 12.5px;
+      line-height: 1.45;
+      color: #e2e8f0;
+    }
+
+    .contact-banner i {
+      color: var(--primary);
+      font-size: 18px;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .contact-banner strong {
+      color: #ffffff;
+    }
+
+    .contact-banner .highlight {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    /* Alerta de error */
     .alert-error {
       background: var(--error-bg);
       border: 1px solid var(--error-border);
@@ -129,12 +160,52 @@
       margin-bottom: 18px;
     }
 
+    .label-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
     .form-group label {
-      display: block;
       font-size: 13px;
       font-weight: 600;
       color: #cbd5e1;
-      margin-bottom: 8px;
+    }
+
+    /* Badges de soporte y aclaración */
+    .field-badge {
+      font-size: 10.5px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .badge-contact {
+      background: rgba(37, 211, 102, 0.15);
+      color: var(--primary);
+      border: 1px solid rgba(37, 211, 102, 0.35);
+    }
+
+    .badge-account {
+      background: rgba(212, 175, 55, 0.15);
+      color: var(--gold);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+    }
+
+    .field-hint {
+      display: block;
+      font-size: 11.5px;
+      color: var(--text-muted);
+      margin-top: 6px;
+      line-height: 1.4;
+    }
+
+    .field-hint i {
+      color: var(--primary);
+      margin-right: 4px;
     }
 
     .input-wrapper {
@@ -163,334 +234,4 @@
     }
 
     .input-wrapper input:focus {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.15);
-      background: #151e36;
-    }
-
-    .toggle-pass {
-      position: absolute;
-      right: 16px;
-      color: var(--text-muted);
-      cursor: pointer;
-      font-size: 15px;
-    }
-
-    .btn-submit {
-      width: 100%;
-      background: linear-gradient(135deg, #25D366 0%, #16a34a 100%);
-      color: #03140a;
-      border: none;
-      border-radius: 14px;
-      padding: 15px;
-      font-size: 15px;
-      font-weight: 700;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 24px;
-      box-shadow: 0 12px 28px rgba(37, 211, 102, 0.28);
-      transition: all 0.2s ease;
-    }
-
-    .btn-submit:hover {
-      transform: translateY(-1px);
-      filter: brightness(1.08);
-      box-shadow: 0 14px 34px rgba(37, 211, 102, 0.38);
-    }
-
-    .btn-submit:active {
-      transform: translateY(0);
-    }
-
-    .btn-submit:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-      transform: none;
-    }
-
-    .footer-brand {
-      text-align: center;
-      margin-top: 20px;
-      font-size: 12px;
-      color: var(--text-muted);
-    }
-
-    /* Pantalla de Éxito */
-    .success-box {
-      display: none;
-      text-align: center;
-      animation: fadeIn 0.4s ease-out forwards;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    .check-icon {
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
-      background: #25D366;
-      color: #06150b;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 34px;
-      margin: 0 auto 20px;
-      box-shadow: 0 0 35px rgba(37, 211, 102, 0.4);
-    }
-
-    .success-box h2 {
-      font-size: 24px;
-      font-weight: 800;
-      margin-bottom: 8px;
-    }
-
-    .success-box .subtext {
-      font-size: 13px;
-      color: var(--text-muted);
-      margin-bottom: 24px;
-    }
-
-    .data-list {
-      background: var(--input-bg);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 16px 20px;
-      margin-bottom: 22px;
-      text-align: left;
-    }
-
-    .data-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      font-size: 13px;
-    }
-
-    .data-item:last-child {
-      border-bottom: none;
-    }
-
-    .data-item .label {
-      color: var(--text-muted);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .data-item .val {
-      font-weight: 600;
-      color: #ffffff;
-      word-break: break-all;
-    }
-
-    .notice-box {
-      background: rgba(37, 211, 102, 0.06);
-      border: 1px solid rgba(37, 211, 102, 0.2);
-      border-radius: 14px;
-      padding: 14px;
-      font-size: 12px;
-      color: #a7f3d0;
-      line-height: 1.55;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-align: left;
-    }
-  </style>
-</head>
-<body>
-
-  <div class="brand-header">
-    <img src="assets/logo.png" alt="JN CRM" class="brand-logo">
-    <h1>Pide tu demo de 3 días <span>GRATIS</span></h1>
-    <p>Completa tus datos y activa tu acceso gratuito por 3 días.</p>
-  </div>
-
-  <div class="card">
-    <!-- Formulario de Registro -->
-    <div id="form-container">
-      <div id="error-alert" class="alert-error">
-        <i class="fas fa-circle-exclamation"></i>
-        <span id="error-msg"></span>
-      </div>
-
-      <form id="demo-form">
-        <div class="form-group">
-          <label>Nombre completo</label>
-          <div class="input-wrapper">
-            <i class="fas fa-user lead-icon"></i>
-            <input type="text" id="name" required placeholder="Tu nombre">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label>WhatsApp</label>
-          <div class="input-wrapper">
-            <i class="fab fa-whatsapp lead-icon"></i>
-            <input type="tel" id="whatsapp" required placeholder="+573105516416">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label>Correo electrónico</label>
-          <div class="input-wrapper">
-            <i class="fas fa-envelope lead-icon"></i>
-            <input type="email" id="email" required placeholder="tu@correo.com">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label>Crea una contraseña</label>
-          <div class="input-wrapper">
-            <i class="fas fa-lock lead-icon"></i>
-            <input type="password" id="password" required placeholder="••••••••">
-            <i class="fas fa-eye toggle-pass" id="togglePassword"></i>
-          </div>
-        </div>
-
-        <button type="submit" id="btn-submit" class="btn-submit">
-          <i class="fas fa-bolt"></i> Activar mi demo gratis
-        </button>
-      </form>
-      <div class="footer-brand">Formulario oficial JN CRM</div>
-    </div>
-
-    <!-- Pantalla de Éxito -->
-    <div id="success-container" class="success-box">
-      <div class="check-icon"><i class="fas fa-check"></i></div>
-      <h2>¡Registro con éxito!</h2>
-      <p class="subtext">Tu demo de 3 días ya está activa. Guarda tus datos de acceso.</p>
-
-      <div class="data-list">
-        <div class="data-item">
-          <span class="label"><i class="fas fa-user"></i> Usuario</span>
-          <span class="val" id="res-user">-</span>
-        </div>
-        <div class="data-item">
-          <span class="label"><i class="fas fa-lock"></i> Contraseña</span>
-          <span class="val" id="res-pass">-</span>
-        </div>
-        <div class="data-item">
-          <span class="label"><i class="fab fa-whatsapp"></i> WhatsApp</span>
-          <span class="val" id="res-phone">-</span>
-        </div>
-        <div class="data-item">
-          <span class="label"><i class="fas fa-calendar-check"></i> Vencimiento</span>
-          <span class="val" id="res-exp" style="color: var(--primary);">-</span>
-        </div>
-      </div>
-
-      <div class="notice-box">
-        <i class="fas fa-headset" style="font-size: 18px; color: var(--primary);"></i>
-        <span>Después de terminar tu demo de 3 días, comunícate con uno de nuestros asesores para continuar con tu acceso.</span>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    // Registro del Service Worker para PWA
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js').catch(() => {});
-    }
-
-    // Toggle de visibilidad de contraseña
-    const togglePass = document.getElementById('togglePassword');
-    const inputPass = document.getElementById('password');
-    togglePass.addEventListener('click', () => {
-      const type = inputPass.getAttribute('type') === 'password' ? 'text' : 'password';
-      inputPass.setAttribute('type', type);
-      togglePass.classList.toggle('fa-eye');
-      togglePass.classList.toggle('fa-eye-slash');
-    });
-
-    const form = document.getElementById('demo-form');
-    const inputPhone = document.getElementById('whatsapp');
-    const errorAlert = document.getElementById('error-alert');
-    const errorMsg = document.getElementById('error-msg');
-    const btn = document.getElementById('btn-submit');
-
-    // Validación automática del '+'
-    inputPhone.addEventListener('blur', function() {
-      let val = this.value.trim();
-      if (val && !val.startsWith('+')) {
-        this.value = '+' + val;
-      }
-    });
-
-    form.addEventListener('submit', async function(e) {
-      e.preventDefault();
-      errorAlert.style.display = 'none';
-
-      let phoneVal = inputPhone.value.trim();
-      if (!phoneVal.startsWith('+')) {
-        errorMsg.innerText = "WhatsApp debe empezar con + y código de país.";
-        errorAlert.style.display = 'flex';
-        return;
-      }
-
-      btn.disabled = true;
-      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Activando...';
-
-      // Endpoint del webhook (cuando lo conectemos con n8n)
-      const WEBHOOK_URL = "https://jnwebpro-n8n.5ddkar.easypanel.host/webhook/registro-demo-wapibot"; 
-
-      const payload = {
-        name: document.getElementById('name').value.trim(),
-        whatsapp: phoneVal,
-        email: document.getElementById('email').value.trim(),
-        password: inputPass.value
-      };
-
-      try {
-        const res = await fetch(WEBHOOK_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-
-        const data = await res.json();
-
-        if (res.ok && data.success) {
-          mostrarExito(data.datos);
-        } else {
-          errorMsg.innerText = data.error || "Ese correo o WhatsApp ya está registrado.";
-          errorAlert.style.display = 'flex';
-        }
-      } catch (err) {
-        // Modo fallback mientras conectamos el backend definitivo:
-        // Simula la activación para previsualizar la pantalla final
-        const fechaExp = new Date();
-        fechaExp.setDate(fechaExp.getDate() + 3);
-        const expStr = fechaExp.toISOString().replace('T', ' ').substring(0, 19);
-
-        mostrarExito({
-          usuario: payload.email,
-          password: payload.password,
-          whatsapp: payload.whatsapp,
-          vencimiento: expStr
-        });
-      } finally {
-        btn.disabled = false;
-        btn.innerHTML = '<i class="fas fa-bolt"></i> Activar mi demo gratis';
-      }
-    });
-
-    function mostrarExito(datos) {
-      document.getElementById('form-container').style.display = 'none';
-      document.getElementById('res-user').innerText = datos.usuario;
-      document.getElementById('res-pass').innerText = datos.password;
-      document.getElementById('res-phone').innerText = datos.whatsapp;
-      document.getElementById('res-exp').innerText = datos.vencimiento;
-      document.getElementById('success-container').style.display = 'block';
-    }
-  </script>
-</body>
-</html>
+      border-color: var(--primary
