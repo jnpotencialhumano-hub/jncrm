@@ -511,7 +511,38 @@
     const errorMsg = document.getElementById('error-msg');
     const btn = document.getElementById('btn-submit');
 
-    // Validación automática del '+'
+    // === DETECTAR Y CARGAR NÚMERO DESDE LA URL (?phone= o ?whatsapp=) ===
+    function sincronizarTelefonoDesdeURL() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const rawParam = urlParams.get('phone') || urlParams.get('whatsapp');
+
+      if (rawParam) {
+        // Limpiar cualquier carácter extraño y conservar solo dígitos
+        const soloDigitos = rawParam.replace(/[^0-9]/g, '');
+
+        if (soloDigitos.length >= 7) {
+          inputPhone.value = '+' + soloDigitos;
+          inputPhone.readOnly = true; // Bloquea la edición para que el usuario no lo altere
+          inputPhone.style.backgroundColor = '#0b1120';
+          inputPhone.style.borderColor = 'rgba(37, 211, 102, 0.45)';
+          inputPhone.style.color = '#25D366';
+          inputPhone.style.fontWeight = '600';
+          inputPhone.style.cursor = 'not-allowed';
+
+          // Actualizar la nota de ayuda bajo el input
+          const hint = inputPhone.closest('.form-group').querySelector('.field-hint');
+          if (hint) {
+            hint.innerHTML = '<i class="fas fa-check-circle" style="color: var(--primary);"></i> WhatsApp verificado y vinculado automáticamente desde tu chat.';
+          }
+        }
+      }
+    }
+
+    // Ejecutar al cargar la página
+    document.addEventListener('DOMContentLoaded', sincronizarTelefonoDesdeURL);
+    sincronizarTelefonoDesdeURL();
+
+    // Validación automática del '+' si lo escriben manualmente
     inputPhone.addEventListener('blur', function() {
       let val = this.value.trim();
       if (val && !val.startsWith('+')) {
@@ -533,7 +564,7 @@
       btn.disabled = true;
       btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Activando...';
 
-      // Endpoint del webhook
+      // Endpoint del webhook de n8n
       const WEBHOOK_URL = "https://jnwebpro-n8n.5ddkar.easypanel.host/webhook/registro-demo-wapibot"; 
 
       const payload = {
